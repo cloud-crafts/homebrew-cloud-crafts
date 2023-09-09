@@ -5,21 +5,21 @@
 class SgRipper < Formula
   desc "AWS Security Group and ENI cleaner.."
   homepage "https://github.com/cloud-crafts/sg-ripper"
-  version "0.1.1"
+  version "0.1.2"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/cloud-crafts/sg-ripper/releases/download/v0.1.1/sg-ripper-0.1.1-darwin-arm64.tar.gz"
-      sha256 "f89a8b9f92ce1e34df7837e2d549494db9a4aa9d60fbdbbd4177014be5dcb074"
+      url "https://github.com/cloud-crafts/sg-ripper/releases/download/v0.1.2/sg-ripper-0.1.2-darwin-arm64.tar.gz"
+      sha256 "a5dbbc095b8aa065862ac5bbbb7ef2f435593d4c40b385f9a3513f5d6b2ffb44"
 
       def install
         bin.install "bin/sg-ripper"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/cloud-crafts/sg-ripper/releases/download/v0.1.1/sg-ripper-0.1.1-darwin-amd64.tar.gz"
-      sha256 "989edbb014455a980ee69cc4643df79118177f316fb8d2ff80403c03dcbc6b44"
+      url "https://github.com/cloud-crafts/sg-ripper/releases/download/v0.1.2/sg-ripper-0.1.2-darwin-amd64.tar.gz"
+      sha256 "3ca2a8948bb20cb16f53c27bf9bff260f6f57723faffbedd277fa1d925888d9b"
 
       def install
         bin.install "bin/sg-ripper"
@@ -28,25 +28,25 @@ class SgRipper < Formula
   end
 
   on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/cloud-crafts/sg-ripper/releases/download/v0.1.2/sg-ripper-0.1.2-linux-amd64.tar.gz"
+      sha256 "12876f4b6ea411537589b1b12cb6da3d78d148204729a11823de2a6f6bb246ae"
+
+      def install
+        bin.install "bin/sg-ripper"
+      end
+    end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/cloud-crafts/sg-ripper/releases/download/v0.1.1/sg-ripper-0.1.1-linux-armv6.tar.gz"
-      sha256 "78dac9c0eacd02f60d99d9295f0934cd1bcf9cd0903bd3e66acaff2718fbb757"
+      url "https://github.com/cloud-crafts/sg-ripper/releases/download/v0.1.2/sg-ripper-0.1.2-linux-armv6.tar.gz"
+      sha256 "7a68b14504f3829aa53938d31363d0128c449c7b528388440034db87d360bf0a"
 
       def install
         bin.install "bin/sg-ripper"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/cloud-crafts/sg-ripper/releases/download/v0.1.1/sg-ripper-0.1.1-linux-arm64.tar.gz"
-      sha256 "b37052a9d539e15e09db70b8519dbe0640ea299f33c69a92713f0c112a010a13"
-
-      def install
-        bin.install "bin/sg-ripper"
-      end
-    end
-    if Hardware::CPU.intel?
-      url "https://github.com/cloud-crafts/sg-ripper/releases/download/v0.1.1/sg-ripper-0.1.1-linux-amd64.tar.gz"
-      sha256 "2dca0051b0a31cc486f6e72095d90e0710b52437010d7a153d4fedf767a81467"
+      url "https://github.com/cloud-crafts/sg-ripper/releases/download/v0.1.2/sg-ripper-0.1.2-linux-arm64.tar.gz"
+      sha256 "0add9a974c919aabe70655ae71fd77ac5e8f36ac8f5a9b233776431efec4e93d"
 
       def install
         bin.install "bin/sg-ripper"
